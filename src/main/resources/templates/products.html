@@ -15,7 +15,7 @@
         <div class="mb-4">
             <a href="/cart" class="btn btn-secondary">Ver Carrito</a>
 			
-			<!-- Botón de Logout -->
+			<!-- Logout -->
 			<div th:if="${#authentication.authenticated}">
 				<form th:action="@{/logout}" method="post" class="d-inline">
 					<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>

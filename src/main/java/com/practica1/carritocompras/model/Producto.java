@@ -26,6 +26,10 @@ public class Producto {
     private String name;
 	@Column(name = "precio")
     private Double price;
+	@Column(name = "category")
+    private String category;
+	@Column(name = "description")
+	private String description;
 
     public Producto(String name, double price) {
         this.name = name;
@@ -60,6 +64,26 @@ public class Producto {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+
+	public String getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 

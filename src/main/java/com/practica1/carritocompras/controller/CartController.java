@@ -29,7 +29,7 @@ public class CartController {
 	  public String addToCart(@PathVariable("id") Long id,
 	                          @ModelAttribute("cartItems") List<Producto> cartItems,
 	                          RedirectAttributes ra) {
-	    Producto p = productService.getProductById(id); // o getProductById(id)
+	    Producto p = productService.getProductById(id); 
 	    if (p != null) {
 	      cartItems.add(p);
 	      ra.addFlashAttribute("msg", "Añadido al carrito");

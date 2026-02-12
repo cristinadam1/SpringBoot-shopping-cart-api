@@ -27,6 +27,21 @@ public class ProductoService {
     public void deleteProduct(Long id) {
         productRepo.deleteById(id);
     }
+    public List<Producto> findByCategory(String category) {
+        return productRepo.findByCategory(category);
+    }
+    
+    public Producto updateProduct(Long id, Producto productDetails) {
+        Producto product = productRepo.findById(id).orElse(null);
+        if (product != null) {
+            product.setName(productDetails.getName());
+            product.setPrice(productDetails.getPrice());
+            product.setDescription(productDetails.getDescription());
+            product.setCategory(productDetails.getCategory());
+            return productRepo.save(product);
+        }
+        return null;
+    }
 
 }
 

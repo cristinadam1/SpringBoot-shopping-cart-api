@@ -15,12 +15,12 @@ public class ProductController {
 	@GetMapping
     public String getProductsPage(Model model) {
 		model.addAttribute("products", productService.getAllProducts());
-        return "products"; // Devuelve products.html desde las plantillas
+        return "products"; 
     }
 	@GetMapping("/add")
     public String showAddForm(Model model) {
         model.addAttribute("product", new Producto());
-        return "product_form"; // templates/product_form.html
+        return "product_form"; 
     }
 	@PostMapping("/add")
 	   public String addProduct(@RequestParam String name, @RequestParam double price) {
@@ -28,7 +28,7 @@ public class ProductController {
 	        product.setName(name);
 	        product.setPrice(price);
 	        productService.saveProduct(product);
-	        return "redirect:/admin";  // Redirigir correctamente a /admin
+	        return "redirect:/admin";  
 	    }
 	
 	@PostMapping("/edit/{id}")
@@ -39,7 +39,7 @@ public class ProductController {
             product.setPrice(price);
             productService.saveProduct(product);
         }
-        return "redirect:/admin";  // Redirigir correctamente a /admin
+        return "redirect:/admin"; 
     }
 	
 	@GetMapping("/edit/{id}")
@@ -56,6 +56,6 @@ public class ProductController {
 	@PostMapping("/delete/{id}")
     public String deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
-        return "redirect:/admin";  // Redirigir correctamente a /admin
+        return "redirect:/admin"; 
     }
 }
